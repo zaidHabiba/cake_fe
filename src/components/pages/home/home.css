@@ -1,0 +1,62 @@
+.home-view {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: center;
+}
+
+.home-view img {
+    width: 65%;
+}
+
+.home-text-view {
+    color: #000000;
+}
+
+.home-text-view h2 {
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 3.5em;
+}
+
+.home-text-view p {
+    font-family: Snell Roundhand, cursive;
+    font-size: 1.3em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.section-two {
+    background: #e4e4e4;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 0px -5px 20px 14px #5858584f, 0px -10px 20px #02020200;
+}
+
+.info-section img {
+    width: 30%;
+    padding-right: 50px;
+    border-radius: 20px;
+}
+
+.info-section div {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.info-section {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-box {
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
