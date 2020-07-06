@@ -16,7 +16,7 @@ class Home extends React.Component {
 
 
     componentDidMount = async () => {
-        const response = await backend.get('/offers/');
+        const response = await backend.get('/offers/', {headers: {"Access-Control-Allow-Origin": "*"}});
         if (response.status === 200) {
             this.setState({noDataMsgDisplay: false, cards: response.data});
         } else {
