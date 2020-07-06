@@ -10,6 +10,11 @@ class App extends React.Component {
         user: undefined
     };
 
+    constructor(props) {
+        super(props);
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    }
+
     render() {
         return (
             <BrowserRouter>

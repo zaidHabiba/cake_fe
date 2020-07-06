@@ -14,7 +14,6 @@ class Home extends React.Component {
         noDataMsgDisplay: false
     };
 
-
     componentDidMount = async () => {
         const response = await backend.get('/offers/');
         if (response.status === 200) {
@@ -29,7 +28,6 @@ class Home extends React.Component {
             return <Header size='huge'>No data to view</Header>;
         }
         return this.state.cards.map((card, key) => {
-            console.log(card);
             return <Card key={key} image={card.image} name={card.name} price={card.price}/>;
         });
     };
@@ -40,7 +38,7 @@ class Home extends React.Component {
                 <Menu/>
                 <Responsive {...Responsive.onlyTablet}>
                     <div className="home-view">
-                        <img alt="" src={cakeBG}/>
+                        <img alt="" src={cakeBG} draggable="false"/>
                         <div className="home-text-view">
                             <h2>khathu baking</h2>
                             <p>
