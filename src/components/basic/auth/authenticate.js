@@ -11,8 +11,8 @@ class Authenticate extends React.Component {
     };
 
     componentDidMount = async () => {
-        if (Cookies.get("token")) {//headers: {"Access-Control-Allow-Origin": "*"}
-            const response = await request.get('/user/', {headers: {Authorization: `Token ${Cookies.get("token")}`,"Access-Control-Allow-Origin": "*"}});
+        if (Cookies.get("token")) {
+            const response = await request.get('/user/', {headers: {Authorization: `Token ${Cookies.get("token")}`}});
             if (response.status === 200) {
                 this.setState({isAuthenticate: true, isWaitingRequest: false});
             } else {
