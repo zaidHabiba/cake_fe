@@ -50,7 +50,7 @@ class Home extends React.Component {
                 </Responsive>
                 <Responsive {...Responsive.onlyComputer}>
                     <div className="home-view">
-                        <img alt="" src={cakeBG}/>
+                        <img alt="" src={cakeBG} draggable="false"/>
                         <div className="home-text-view">
                             <h2>khathu baking</h2>
                             <p>What are you waiting for? <br/> Enter the deepest worlds<br/>
