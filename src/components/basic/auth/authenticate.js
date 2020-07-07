@@ -7,14 +7,17 @@ class Authenticate extends React.Component {
 
     state = {
         isAuthenticate: false,
-        isWaitingRequest: true
+        isWaitingRequest: true,
+        user: {}
     };
+    fto;
+    isUnauthenticated;
 
     componentDidMount = async () => {
         if (Cookies.get("token")) {
             const response = await request.get('/user/', {headers: {Authorization: `Token ${Cookies.get("token")}`}});
             if (response.status === 200) {
-                this.setState({isAuthenticate: true, isWaitingRequest: false});
+                this.setState({isAuthenticate: true, isWaitingRequest: false, user: response.data});
             } else {
                 this.setState({isAuthenticate: false, isWaitingRequest: false});
             }
@@ -23,15 +26,12 @@ class Authenticate extends React.Component {
         }
     };
 
-    fto;
-    isUnauthenticated;
-
     render() {
         if (this.state.isWaitingRequest) {
             if (this.state.isAuthenticate) {
-                if(this.props.loading){
+                if (this.props.loading) {
                     return this.props.loading;
-                }else {
+                } else {
                     return null;
                 }
             } else {
@@ -39,17 +39,25 @@ class Authenticate extends React.Component {
             }
         } else {
             if (this.state.isAuthenticate) {
-                if(this.props.isUnauthenticated){
+                if (this.props.isUnauthenticated) {
                     if (this.props.ato) {
                         return <Redirect to={this.props.ato}/>;
                     }
                     return null;
                 } else {
-                    return this.props.children;
+                    if (!this.props.adminOnly) {
+                        return this.props.children;
+                    } else {
+                        if (this.state.user && this.state.user.is_superuser) {
+                            return this.props.children;
+                        } else {
+                            return null;
+                        }
+                    }
                 }
             } else if (this.props.fto) {
                 return <Redirect to={this.props.fto}/>;
-            }else if(this.props.isUnauthenticated){
+            } else if (this.props.isUnauthenticated) {
                 return this.props.children;
             } else {
                 return null;

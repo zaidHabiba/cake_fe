@@ -50,7 +50,7 @@ class Login extends React.Component {
                         <Form onSubmit={this.handleLogin}>
                             {this.renderErrorMsg()}
                             <Form.Field>
-                                <label>User name</label>
+                                <label>Email</label>
                                 <Email value={this.state.username} onChange={(e) => {
                                     this.setState({username: e.target.value})
                                 }}/>

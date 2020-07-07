@@ -13,7 +13,7 @@ class Menu extends React.Component {
                     <div className="menu-item">
                         <Link to=''>Offers</Link>
                     </div>
-                    <Authenticate>
+                    <Authenticate adminOnly={true}>
                         <div className="menu-item"><Link to='/add-item'>Add item</Link></div>
                         <div className="menu-item"><Link to='/view-items'>View items</Link></div>
                     </Authenticate>
@@ -24,6 +24,7 @@ class Menu extends React.Component {
                     </Authenticate>
                     <Authenticate isUnauthenticated={true}>
                         <div className="menu-item"><Link to='/login'>Login</Link></div>
+                        <div className="menu-item"><Link to='/register'>Register</Link></div>
                     </Authenticate>
                 </div>
             </div>

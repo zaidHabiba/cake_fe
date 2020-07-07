@@ -32,6 +32,19 @@ class Home extends React.Component {
         });
     };
 
+    renderCardSections() {
+        if (!this.state.cards || this.state.cards.length < 1) {
+            return null;
+        }
+        return (
+            <div className="section-two">
+                <div className="view-box">
+                    {this.renderCards()}
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div>
@@ -67,11 +80,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </Responsive>
-                <div className="section-two">
-                    <div className="view-box">
-                        {this.renderCards()}
-                    </div>
-                </div>
+                {this.renderCardSections()}
             </div>
         );
     }

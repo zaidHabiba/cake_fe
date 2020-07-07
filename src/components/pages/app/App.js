@@ -4,6 +4,7 @@ import './App.css';
 import Login from "../auth/login";
 import Home from "../home/home";
 import Logout from "../auth/logout";
+import Register from "../auth/register";
 
 class App extends React.Component {
     state = {
@@ -12,7 +13,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        //sdocument.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('contextmenu', event => event.preventDefault());
     }
 
     render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
                     <Route path="/" exact component={Home}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/logout" exact component={Logout}/>
+                    <Route path="/register" exact component={Register}/>
                 </div>
             </BrowserRouter>
         );
