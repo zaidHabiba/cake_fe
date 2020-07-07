@@ -13,7 +13,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        //document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('contextmenu', event => event.preventDefault());
     }
 
     render() {
